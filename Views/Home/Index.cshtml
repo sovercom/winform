@@ -1,0 +1,88 @@
+﻿@using project02.Models
+@model IEnumerable<MachineCensor>
+
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<head>
+    <title>장치 정보 보기</title>
+<style>
+body { font-family: "나눔고딕", "맑은고딕" }
+h1 { font-family: "HY견고딕" }
+#topBanner {
+       margin-top:1000px;
+       margin-bottom:10px;
+       max-width: 1000px;
+       height: auto;
+       display: block; margin: 0 auto;
+}
+
+.InfoTable {
+      border-collapse: collapse;
+      border-top: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+      width: 800px;  
+      margin-left: auto; margin-right: auto;
+      background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    }  
+    .InfoTable th {
+      color: #ffffff;
+      background: #242424;
+      background-image: #242424;
+      text-align: center;
+    
+    }
+    .InfoTable th, .InfoTable td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    .InfoTable th:first-child, .InfoTable td:first-child {
+      border-left: 0;
+    }
+    .InfoTable th:last-child, .InfoTable td:last-child {
+      border-right: 0;
+    }
+    .InfoTable tr td:first-child{
+      text-align: center;
+    }
+    .InfoTable caption{caption-side: top; }
+
+
+</style>
+
+
+</head>
+
+<body>
+<img id="topBanner" src ="/down/auto.png" title="auto" >
+
+<h1 style="text-align: center;"> <span style = "color:	#030066;">설비 DB List</span></h1>
+
+<table class="InfoTable">
+    <caption style="text-align: right; font-weight:900">기준 일자 : @DateTime.Now</caption>
+    <tr>
+        <th>관리자</th>
+        <th>장치명</th>
+        <th>온도</th>
+        <th>전력사용량</th>
+        <th>운전 시간</th>
+    </tr>
+
+
+    @foreach(MachineCensor machine in Model)
+    {
+        <tr>
+            <td>@machine.managerName</td>
+            <td>@machine.machineName</td>
+            <td>@machine.temperature</td>
+            <td>@machine.power</td>
+            <td>@machine.runtime</td>        
+        </tr>
+    }
+ 
+</table>
+    
+</body>
+
+

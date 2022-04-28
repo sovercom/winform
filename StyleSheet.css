@@ -1,0 +1,13 @@
+﻿/* @keyframes는 위의 예시와 동일 */
+
+.box.a {
+    animation: box-ani 1s infinite;
+}
+
+.box.b {
+    animation: box-ani 1s;
+}
+
+.box.c {
+    animation: box-ani 1s 3;
+}
